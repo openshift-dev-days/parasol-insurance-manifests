@@ -19,6 +19,8 @@ spec:
     metadata:
       labels:
         app: parasol-insurance
+        app.kubernetes.io/name: parasol-insurance-{{ .Values.tenant.username }}
+        app.kubernetes.io/part-of: parasol-insurance-{{ .Values.environment }}
     spec:
       containers:
         - name: parasol-insurance

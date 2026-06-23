@@ -47,6 +47,8 @@ spec:
     metadata:
       labels:
         app: parasol-db
+        app.kubernetes.io/name: parasol-insurance-{{ .Values.tenant.username }}
+        app.kubernetes.io/part-of: parasol-insurance-{{ .Values.environment }}
     spec:
       securityContext:
         runAsNonRoot: true
