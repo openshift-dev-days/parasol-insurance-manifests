@@ -5,7 +5,8 @@ metadata:
   namespace: {{ .Values.namespace }}
   labels:
     app: parasol-insurance
-    app.kubernetes.io/name: parasol-insurance
+    app.kubernetes.io/name: parasol-insurance-{{ .Values.tenant.username }}
+    app.kubernetes.io/part-of: parasol-insurance-{{ .Values.environment }}
   annotations:
     app.openshift.io/vcs-uri: "https://gitlab-gitlab.{{ .Values.cluster.subdomain }}/{{ .Values.registry.organization }}/parasol-insurance"
 spec:

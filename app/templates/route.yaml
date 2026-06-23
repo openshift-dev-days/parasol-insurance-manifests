@@ -5,6 +5,8 @@ metadata:
   namespace: {{ .Values.namespace }}
   labels:
     app: parasol-insurance
+    app.kubernetes.io/name: parasol-insurance-{{ .Values.tenant.username }}
+    app.kubernetes.io/part-of: parasol-insurance-{{ .Values.environment }}
 spec:
   to:
     kind: Service

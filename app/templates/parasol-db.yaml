@@ -3,6 +3,9 @@ kind: Secret
 metadata:
   name: parasol-db
   namespace: {{ .Values.namespace }}
+  labels:
+    app.kubernetes.io/name: parasol-insurance-{{ .Values.tenant.username }}
+    app.kubernetes.io/part-of: parasol-insurance-{{ .Values.environment }}
 type: Opaque
 stringData:
   database-user: {{ .Values.database.user }}
@@ -14,6 +17,9 @@ kind: Service
 metadata:
   name: parasol-db
   namespace: {{ .Values.namespace }}
+  labels:
+    app.kubernetes.io/name: parasol-insurance-{{ .Values.tenant.username }}
+    app.kubernetes.io/part-of: parasol-insurance-{{ .Values.environment }}
 spec:
   ports:
     - port: 5432
@@ -38,6 +44,9 @@ kind: Deployment
 metadata:
   name: parasol-db
   namespace: {{ .Values.namespace }}
+  labels:
+    app.kubernetes.io/name: parasol-insurance-{{ .Values.tenant.username }}
+    app.kubernetes.io/part-of: parasol-insurance-{{ .Values.environment }}
 spec:
   replicas: 1
   selector:
