@@ -7,6 +7,7 @@ metadata:
     app: parasol-insurance
     app.kubernetes.io/name: parasol-insurance-{{ .Values.tenant.username }}
     app.kubernetes.io/part-of: parasol-insurance-{{ .Values.environment }}
+    app.openshift.io/runtime: quarkus
   annotations:
     app.openshift.io/vcs-uri: "https://gitlab-gitlab.{{ .Values.cluster.subdomain }}/{{ .Values.registry.organization }}/parasol-insurance"
 spec:

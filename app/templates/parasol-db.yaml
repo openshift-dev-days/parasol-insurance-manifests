@@ -47,6 +47,7 @@ metadata:
   labels:
     app.kubernetes.io/name: parasol-insurance-{{ .Values.tenant.username }}
     app.kubernetes.io/part-of: parasol-insurance-{{ .Values.environment }}
+    app.openshift.io/runtime: postgresql
 spec:
   replicas: 1
   selector:
