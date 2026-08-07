@@ -1,7 +1,19 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: maven-cache
+  name: maven-cache-push
+  namespace: {{ .Values.namespace }}
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: maven-cache-tag-promote
   namespace: {{ .Values.namespace }}
 spec:
   accessModes:
