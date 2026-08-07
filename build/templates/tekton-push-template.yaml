@@ -40,4 +40,4 @@ spec:
               secretName: sonarqube-credentials
           - name: maven-cache
             persistentVolumeClaim:
-              claimName: maven-cache
+              claimName: maven-cache-push
