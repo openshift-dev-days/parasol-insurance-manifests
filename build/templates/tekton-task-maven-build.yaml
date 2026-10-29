@@ -8,6 +8,14 @@ spec:
     - name: source
     - name: maven-cache
       optional: true
+  stepTemplate:
+    volumeMounts:
+    - name: maven-settings
+      mountPath: /tmp/maven-settings
+  volumes:
+    - name: maven-settings
+      configMap:
+        name: maven-settings-xml
   steps:
     - name: maven-build
       image: registry.access.redhat.com/ubi9/openjdk-21:1.20
@@ -25,4 +33,4 @@ spec:
       script: |
         #!/usr/bin/env bash
         set -ex
-        mvn package
+        mvn package -s /tmp/maven-settings/settings.xml
